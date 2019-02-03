@@ -20,8 +20,11 @@ read -s -p "Hop3x va être installé dans ${path} : [ENTREE] pour continuer, [CR
 # Téléchargement et installation des paquets requis
 echo -e "\n\n${BOLD}Mise à jour de la liste des paquets...${NORMAL}"
 sudo apt-get update
+echo -e "\n${BOLD}Installation du paquet software-properties-common...${NORMAL}"
 sudo apt-get -y install software-properties-common
+echo -e "\n${BOLD}Ajout du dépôt pour Oracle Java 8...${NORMAL}"
 sudo add-apt-repository -y ppa:webupd8team/java
+echo -e "\n${BOLD}Mise à jour de la liste des paquets...${NORMAL}"
 sudo apt-get update
 
 echo -e "\n${BOLD}Installation des outils de développement (2 paquets) :${NORMAL}"
