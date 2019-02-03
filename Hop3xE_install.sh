@@ -21,40 +21,42 @@ read -s -p "Hop3x va être installé dans "$path" : [ENTREE] pour continuer, [CR
 echo -e "\n\n${BOLD}Mise à jour de la liste des paquets...${NORMAL}"
 sudo apt-get update
 
-echo -e "\n${BOLD}Installation des outils de développement (3 paquets) :${NORMAL}"
-echo -e "${BOLD}(1/3) Installation du paquet gcc...${NORMAL}"
-sudo apt-get -y install gcc 
-echo -e "\n${BOLD}(2/3) Installation du paquet make...${NORMAL}"
-sudo apt-get -y install make
-echo -e "\n${BOLD}(3/3) Installation du paquet xterm...${NORMAL}"
+echo -e "\n${BOLD}Installation des outils de développement (2 paquets) :${NORMAL}"
+echo -e "${BOLD}(1/2) Installation du paquet build-essential...${NORMAL}"
+sudo apt-get -y install build-essential
+echo -e "\n${BOLD}(2/2) Installation du paquet xterm...${NORMAL}"
 sudo apt-get -y install xterm
 
-echo -e "\n${BOLD}Installation de Java (2 paquets) :${NORMAL}"
-echo -e "${BOLD}(1/2) Installation du paquet openjdk-11-jre-headless...${NORMAL}"
-sudo apt-get -y install openjdk-11-jre-headless
-echo -e "\n${BOLD}(2/2) Installation du paquet icedtea-netx...${NORMAL}"
+echo -e "\n${BOLD}Installation de Java 8 (3 paquets) :${NORMAL}"
+echo -e "${BOLD}(1/3) Installation du paquet openjdk-8-jdk...${NORMAL}"
+sudo apt-get -y install openjdk-8-jdk
+echo -e "\n${BOLD}(2/3) Installation du paquet openjdk-8-jre...${NORMAL}"
+sudo apt-get -y install openjdk-8-jre
+echo -e "\n${BOLD}(3/3) Installation du paquet icedtea-netx...${NORMAL}"
 sudo apt-get -y install icedtea-netx
+echo -e "\n${BOLD}(3/3) Met Java 8 commme version par défaut...${NORMAL}"
+sudo update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
 
-echo -e "\n${BOLD}Installation de Ruby (3 paquets) :${NORMAL}"
-echo -e "${BOLD}(1/3) Installation du paquet ruby2.5...${NORMAL}"
+echo -e "\n${BOLD}Installation de Ruby 2.5 (3 paquets) :${NORMAL}"
+echo -e "${BOLD}(1/3) Installation du gem2.5...${NORMAL}"
 sudo apt-get -y install ruby2.5
-echo -e "\n${BOLD}(2/3) Installation du paquet ruby2.5-dev...${NORMAL}"
+echo -e "\n${BOLD}(2/3) Installation du gem2.5-dev...${NORMAL}"
 sudo apt-get -y install ruby2.5-dev
-echo -e "\n${BOLD}(3/3) Installation du paquet ruby2.5-doc...${NORMAL}"
+echo -e "\n${BOLD}(3/3) Installation du gem2.5-doc...${NORMAL}"
 sudo apt-get -y install ruby2.5-doc
 
-echo -e "\n${BOLD}Installation du paquet Ruby rake...${NORMAL}"
+echo -e "\n${BOLD}Installation du gem rake...${NORMAL}"
 sudo gem install rake
 
 echo -e "\n${BOLD}Installation de GTK (3 paquets) :${NORMAL}"
-echo -e "${BOLD}(1/3) Installation du paquet Ruby gtk2...${NORMAL}"
+echo -e "${BOLD}(1/3) Installation du gem gtk2...${NORMAL}"
 sudo gem install gtk2
-echo -e "\n${BOLD}(2/3) Installation du paquet Ruby gtk3...${NORMAL}"
+echo -e "\n${BOLD}(2/3) Installation du gem gtk3...${NORMAL}"
 sudo gem install gtk3
 echo -e "\n${BOLD}(3/3) Installation du paquet glade...${NORMAL}"
 sudo apt-get -y install glade
 
-echo -e "\n${BOLD}Installation du paquet Ruby mp3info...${NORMAL}"
+echo -e "\n${BOLD}Installation du gem mp3info...${NORMAL}"
 sudo gem install mp3info
 
 echo -e "\n${BOLD}Installation de MySQL Server (3 paquets) :${NORMAL}"
@@ -62,16 +64,16 @@ echo -e "${BOLD}(1/3) Installation du paquet mysql-server...${NORMAL}"
 sudo apt-get -y install mysql-server
 echo -e "\n${BOLD}(2/3) Installation du paquet libmysqlclient-dev...${NORMAL}"
 sudo apt-get -y install libmysqlclient-dev
-echo -e "\n${BOLD}(3/3) Installation du paquet Ruby mysql2...${NORMAL}"
+echo -e "\n${BOLD}(3/3) Installation du gem mysql2...${NORMAL}"
 sudo gem install mysql2
 
 echo -e "\n${BOLD}Installation de SQLite 3 (2 paquets) :${NORMAL}"
 echo -e "${BOLD}(1/2) Installation du paquet libsqlite3-dev...${NORMAL}"
 sudo apt-get -y install libsqlite3-dev
-echo -e "\n${BOLD}(2/2) Installation du paquet Ruby sqlite3...${NORMAL}"
+echo -e "\n${BOLD}(2/2) Installation du gem sqlite3...${NORMAL}"
 sudo gem install sqlite3
 
-echo -e "\n${BOLD}Installation du paquet Ruby activerecord...${NORMAL}"
+echo -e "\n${BOLD}Installation du gem activerecord...${NORMAL}"
 sudo gem install activerecord
 
 # Téléchargementde Hop3x
