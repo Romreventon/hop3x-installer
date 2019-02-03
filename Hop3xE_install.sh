@@ -15,15 +15,14 @@ echo ""
 echo "En cas de problème, n'hésitez pas à visiter http://hop3x.univ-lemans.fr pour consulter la procédure d'installation officielle."
 echo ""
 path=`pwd`
-read -s -p "Hop3x va être installé dans "$path" : [ENTREE] pour continuer, [CRTL + C] pour quitter"
+read -s -p "Hop3x va être installé dans ${path} : [ENTREE] pour continuer, [CRTL + C] pour quitter"
 
 # Téléchargement et installation des paquets requis
 echo -e "\n\n${BOLD}Mise à jour de la liste des paquets...${NORMAL}"
 sudo apt-get update
 sudo apt-get -y install software-properties-common
-sudo add-apt-repository ppa:openjdk-r/ppa -y
+sudo add-apt-repository -y ppa:webupd8team/java
 sudo apt-get update
-
 
 echo -e "\n${BOLD}Installation des outils de développement (2 paquets) :${NORMAL}"
 echo -e "${BOLD}(1/2) Installation du paquet build-essential...${NORMAL}"
@@ -31,15 +30,10 @@ sudo apt-get -y install build-essential
 echo -e "\n${BOLD}(2/2) Installation du paquet xterm...${NORMAL}"
 sudo apt-get -y install xterm
 
-echo -e "\n${BOLD}Installation de Java 8 (3 paquets) :${NORMAL}"
-echo -e "${BOLD}(1/3) Installation du paquet openjdk-8-jdk...${NORMAL}"
-sudo apt-get -y install openjdk-8-jdk
-echo -e "\n${BOLD}(2/3) Installation du paquet openjdk-8-jre...${NORMAL}"
-sudo apt-get -y install openjdk-8-jre
-echo -e "\n${BOLD}(3/3) Installation du paquet icedtea-netx...${NORMAL}"
-sudo apt-get -y install icedtea-netx
-echo -e "\n${BOLD}(3/3) Met Java 8 commme version par défaut...${NORMAL}"
-sudo update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+echo -e "\n${BOLD}Installation du paquet oracle-java8-set-default...${NORMAL}"
+sudo apt-get -y install oracle-java8-set-default
+echo -e "\n${BOLD}Met Java 8 commme version par défaut...${NORMAL}"
+sudo update-alternatives --set java /usr/lib/jvm/java-8-oracle/jre/bin/java
 
 echo -e "\n${BOLD}Installation de Ruby 2.5 (3 paquets) :${NORMAL}"
 echo -e "${BOLD}(1/3) Installation du paquet ruby2.5...${NORMAL}"
@@ -117,7 +111,7 @@ do
 		o)	echo -e "\n${BOLD}Lancement de Hop3x...${NORMAL}"
 			java -jar Hop3xE.jar ;;		
 		n) 	;;
-		*)	echo "CHOIX INVALIDE !" ;;
+		*)	echo -e "CHOIX INVALIDE !\n" ;;
 	esac
 done
 
