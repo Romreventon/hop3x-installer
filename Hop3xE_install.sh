@@ -22,8 +22,8 @@ echo -e "\n\n${BOLD}Mise à jour de la liste des paquets...${NORMAL}"
 sudo apt-get update
 echo -e "\n${BOLD}Installation du paquet software-properties-common...${NORMAL}"
 sudo apt-get -y install software-properties-common
-echo -e "\n${BOLD}Ajout du dépôt pour Oracle Java 8...${NORMAL}"
-sudo add-apt-repository -y ppa:webupd8team/java
+echo -e "\n${BOLD}Ajout du dépôt universe...${NORMAL}"
+sudo add-apt-repository -y universe
 echo -e "\n${BOLD}Mise à jour de la liste des paquets...${NORMAL}"
 sudo apt-get update
 
@@ -33,10 +33,11 @@ sudo apt-get -y install build-essential
 echo -e "\n${BOLD}(2/2) Installation du paquet xterm...${NORMAL}"
 sudo apt-get -y install xterm
 
-echo -e "\n${BOLD}Installation du paquet oracle-java8-set-default...${NORMAL}"
-sudo apt-get -y install oracle-java8-set-default
+echo -e "\n${BOLD}Installation du paquet openjdk-8-jdk...${NORMAL}"
+sudo apt-get -y install openjdk-8-jdk
+
 echo -e "\n${BOLD}Met Java 8 commme version par défaut...${NORMAL}"
-sudo update-alternatives --set java /usr/lib/jvm/java-8-oracle/jre/bin/java
+sudo update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
 
 echo -e "\n${BOLD}Installation de Ruby 2.5 (3 paquets) :${NORMAL}"
 echo -e "${BOLD}(1/3) Installation du paquet ruby2.5...${NORMAL}"
