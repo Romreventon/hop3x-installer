@@ -4,7 +4,7 @@ BOLD='\e[1m'
 NORMAL='\e[0m'
 
 echo "******************************************"
-echo "* Unofficial Hop3x Installer - v18.09.27 *"
+echo "* Unofficial Hop3x Installer - v19.02.04 *"
 echo "******************************************"
 echo ""
 echo "Avant de procéder à l'installation, assurez-vous d'être :"
@@ -18,14 +18,14 @@ path=`pwd`
 read -s -p "Hop3x va être installé dans ${path} : [ENTREE] pour continuer, [CRTL + C] pour quitter"
 
 # Téléchargement et installation des paquets requis
-echo -e "\n\n${BOLD}Mise à jour de la liste des paquets...${NORMAL}"
-sudo apt-get update
+echo -e "\n\n${BOLD}Mise à jour des paquets...${NORMAL}"
+sudo apt-get -y update && sudo apt-get -y upgrade
 echo -e "\n${BOLD}Installation du paquet software-properties-common...${NORMAL}"
 sudo apt-get -y install software-properties-common
 echo -e "\n${BOLD}Ajout du dépôt universe...${NORMAL}"
 sudo add-apt-repository -y universe
 echo -e "\n${BOLD}Mise à jour de la liste des paquets...${NORMAL}"
-sudo apt-get update
+sudo apt-get -y update
 
 echo -e "\n${BOLD}Installation des outils de développement (2 paquets) :${NORMAL}"
 echo -e "${BOLD}(1/2) Installation du paquet build-essential...${NORMAL}"
@@ -35,7 +35,6 @@ sudo apt-get -y install xterm
 
 echo -e "\n${BOLD}Installation du paquet openjdk-8-jdk...${NORMAL}"
 sudo apt-get -y install openjdk-8-jdk
-
 echo -e "\n${BOLD}Met Java 8 commme version par défaut...${NORMAL}"
 sudo update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
 
@@ -76,26 +75,23 @@ echo -e "\n${BOLD}(2/2) Installation du gem sqlite3...${NORMAL}"
 sudo gem install sqlite3
 
 echo -e "\n${BOLD}Installation du gem activerecord...${NORMAL}"
-sudo gem install activerecord
+# sudo gem install activerecord
 
-# Téléchargementde Hop3x
+# Téléchargement de Hop3x
 if [ -f Hop3xE.jar ]
 then
-	echo -e "\n${BOLD}Hop3xE.jar existe déjà !${NORMAL}"
+	echo -e "\n${BOLD}Hop3xE.jar existe déjà ! Que voulez-vous le re-télécharger ? [o/n]${NORMAL}"
 	choix=""
-	while [ "$choix" != "1" ] && [ "$choix" != "2" ]
+	while [ "$choix" != "o" ] && [ "$choix" != "n" ]
 	do
-		echo -e "${BOLD}Que voulez-vous faire ?${NORMAL}"
-		echo -e "${BOLD}[1] - Conserver le fichier actuel${NORMAL}"
-		echo -e "${BOLD}[2] - Remplacer par la dernière version${NORMAL}"
 		read -p "choix > " choix
 		case $choix in
-			1)	echo "" ;;
-			2) 	echo -e "\n${BOLD}Suppression de Hop3xE.jar...${NORMAL}"
+			o) 	echo -e "\n${BOLD}Suppression de Hop3xE.jar...${NORMAL}"
 				sudo rm Hop3xE.jar
 				echo -e "\n${BOLD}Téléchargement de Hop3xE.jar...${NORMAL}"
 				wget http://hop3x.univ-lemans.fr/Hop3xE.jar ;;
-			*)	echo "CHOIX INVALIDE !" ;;
+			n)	;;
+			*)	echo -e "CHOIX INVALIDE !\n" ;;
 		esac
 	done
 else
@@ -103,13 +99,20 @@ else
 	wget http://hop3x.univ-lemans.fr/Hop3xE.jar
 fi
 
-# Lancement de Hop3x
-echo -e "${BOLD}Attribution du droit d'éxécution de Hop3xE.jar...${NORMAL}\n"
+
+echo -e "${BOLD}Attribution du droit d'éxécution de Hop3xE.jar...${NORMAL}"
 chmod +x Hop3xE.jar
+echo -e "\n${BOLD}Création du launcher portable...${NORMAL}"
+mkdir launcher && echo -e "#!/bin/bash\n\ncd ${path} && java -jar Hop3xE.jar" > launcher/hop3x
+chmod +x launcher/hop3x
+echo -e "\n${BOLD}Ajout de hop3x dans le PATH...${NORMAL}"
+echo -e "export PATH=$PATH:${path}/launcher" >> ~/.bashrc
+
+# Lancement
+echo -e "\n${BOLD}Voulez-vous lancer Hop3x ? [o/n]${NORMAL}"
 choix=""
 while [ "$choix" != "o" ] && [ "$choix" != "n" ]
 do
-	echo -e "${BOLD}Voulez-vous lancer Hop3x ? [o/n]${NORMAL}"
 	read -p "choix > " choix
 	case $choix in
 		o)	echo -e "\n${BOLD}Lancement de Hop3x...${NORMAL}"
