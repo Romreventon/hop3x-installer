@@ -63,8 +63,8 @@ sudo gem install mp3info
 echo -e "\n${BOLD}Installation de MySQL Server (3 paquets) :${NORMAL}"
 echo -e "${BOLD}(1/3) Installation du paquet mysql-server...${NORMAL}"
 sudo apt-get -y install mysql-server
-echo -e "\n${BOLD}(2/3) Installation du paquet libmysqlclient-dev...${NORMAL}"
-sudo apt-get -y install libmysqlclient-dev
+echo -e "\n${BOLD}(2/3) Installation du paquet default-libmysqlclient-dev...${NORMAL}"
+sudo apt-get -y install default-libmysqlclient-dev
 echo -e "\n${BOLD}(3/3) Installation du gem mysql2...${NORMAL}"
 sudo gem install mysql2
 
