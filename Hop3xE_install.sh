@@ -38,13 +38,8 @@ sudo apt-get -y install openjdk-8-jdk
 echo -e "\n${BOLD}Met Java 8 commme version par défaut...${NORMAL}"
 sudo update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
 
-echo -e "\n${BOLD}Installation de Ruby 2.3 (3 paquets) :${NORMAL}"
-echo -e "${BOLD}(1/3) Installation du paquet ruby2.3...${NORMAL}"
-sudo apt-get -y install ruby2.3
-echo -e "\n${BOLD}(2/3) Installation du paquet ruby2.3-dev...${NORMAL}"
-sudo apt-get -y install ruby2.3-dev
-echo -e "\n${BOLD}(3/3) Installation du paquet ruby2.3-doc...${NORMAL}"
-sudo apt-get -y install ruby2.3-doc
+echo -e "\n${BOLD}Installation de Ruby...${NORMAL}"
+sudo apt-get -y install ruby-full
 
 echo -e "\n${BOLD}Installation du gem rake...${NORMAL}"
 sudo gem install rake
