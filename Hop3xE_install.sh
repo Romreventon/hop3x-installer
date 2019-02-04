@@ -75,7 +75,7 @@ echo -e "\n${BOLD}(2/2) Installation du gem sqlite3...${NORMAL}"
 sudo gem install sqlite3
 
 echo -e "\n${BOLD}Installation du gem activerecord...${NORMAL}"
-# sudo gem install activerecord
+sudo gem install activerecord
 
 # Téléchargement de Hop3x
 if [ -f Hop3xE.jar ]
@@ -99,7 +99,7 @@ else
 	wget http://hop3x.univ-lemans.fr/Hop3xE.jar
 fi
 
-
+# Launcher et PATH
 echo -e "${BOLD}Attribution du droit d'éxécution de Hop3xE.jar...${NORMAL}"
 chmod +x Hop3xE.jar
 echo -e "\n${BOLD}Création du launcher portable...${NORMAL}"
@@ -122,7 +122,7 @@ do
 	esac
 done
 
-# Informations lancement de Hop3x
+# Informations lancement
 echo -e "\n${BOLD}Hop3x est désormais installé ! Voici comment le lancer :${NORMAL}"
-echo -e "[interface graphique] : double clic ou clic droit sur Hop3xE.jar -> ouvrir avec -> OpenJDK 8"
-echo -e "[ligne de commande] : hop3x ou java -jar Hop3xE.jar"
+echo -e "[interface graphique] : double clic sur Hop3xE.jar (ou clic gauche -> ouvrir avec -> OpenJDK 8)"
+echo -e "[terminal] : hop3x (ou java -jar Hop3xE.jar)"
