@@ -22,7 +22,7 @@ echo -e "\n\n${BOLD}Mise à jour de la liste des paquets...${NORMAL}"
 sudo apt-get -y update
 echo -e "\n${BOLD}Installation du paquet software-properties-common...${NORMAL}"
 sudo apt-get -y install software-properties-common
-echo -e "\n${BOLD}Ajout du dépôt universe...${NORMAL}"
+echo -e "\n${BOLD}Ajout du dépôt universe (requis pour OpenJDK 8 sous Ubuntu)...${NORMAL}"
 sudo add-apt-repository -y universe
 echo -e "\n${BOLD}Mise à jour de la liste des paquets...${NORMAL}"
 sudo apt-get -y update
@@ -38,13 +38,13 @@ sudo apt-get -y install openjdk-8-jdk
 echo -e "\n${BOLD}Met Java 8 commme version par défaut...${NORMAL}"
 sudo update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
 
-echo -e "\n${BOLD}Installation de Ruby 2.5 (3 paquets) :${NORMAL}"
-echo -e "${BOLD}(1/3) Installation du paquet ruby2.5...${NORMAL}"
-sudo apt-get -y install ruby2.5
-echo -e "\n${BOLD}(2/3) Installation du paquet ruby2.5-dev...${NORMAL}"
-sudo apt-get -y install ruby2.5-dev
-echo -e "\n${BOLD}(3/3) Installation du paquet ruby2.5-doc...${NORMAL}"
-sudo apt-get -y install ruby2.5-doc
+echo -e "\n${BOLD}Installation de Ruby 2.3 (3 paquets) :${NORMAL}"
+echo -e "${BOLD}(1/3) Installation du paquet ruby2.3...${NORMAL}"
+sudo apt-get -y install ruby2.3
+echo -e "\n${BOLD}(2/3) Installation du paquet ruby2.3-dev...${NORMAL}"
+sudo apt-get -y install ruby2.3-dev
+echo -e "\n${BOLD}(3/3) Installation du paquet ruby2.3-doc...${NORMAL}"
+sudo apt-get -y install ruby2.3-doc
 
 echo -e "\n${BOLD}Installation du gem rake...${NORMAL}"
 sudo gem install rake
