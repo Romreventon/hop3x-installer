@@ -18,8 +18,8 @@ path=`pwd`
 read -s -p "Hop3x va être installé dans ${path} : [ENTREE] pour continuer, [CRTL + C] pour quitter"
 
 # Téléchargement et installation des paquets requis
-echo -e "\n\n${BOLD}Mise à jour des paquets...${NORMAL}"
-sudo apt-get -y update && sudo apt-get -y upgrade
+echo -e "\n\n${BOLD}Mise à jour de la liste des paquets...${NORMAL}"
+sudo apt-get -y update
 echo -e "\n${BOLD}Installation du paquet software-properties-common...${NORMAL}"
 sudo apt-get -y install software-properties-common
 echo -e "\n${BOLD}Ajout du dépôt universe...${NORMAL}"
