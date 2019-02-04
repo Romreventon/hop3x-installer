@@ -124,5 +124,5 @@ done
 
 # Informations lancement de Hop3x
 echo -e "\n${BOLD}Hop3x est désormais installé ! Voici comment le lancer :${NORMAL}"
-echo -e "[interface graphique] : Double clic ou clic droit sur Hop3xE.jar -> ouvrir avec -> Oracle Java/OpenJDK"
-echo -e "[ligne de commande] : java -jar Hop3xE.jar"
+echo -e "[interface graphique] : double clic ou clic droit sur Hop3xE.jar -> ouvrir avec -> OpenJDK 8"
+echo -e "[ligne de commande] : hop3x ou java -jar Hop3xE.jar"
