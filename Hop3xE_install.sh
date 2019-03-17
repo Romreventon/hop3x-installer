@@ -102,6 +102,7 @@ mkdir launcher && echo -e "#!/bin/bash\n\ncd ${path} && java -jar Hop3xE.jar" > 
 chmod +x launcher/hop3x
 echo -e "\n${BOLD}Ajout de hop3x dans le PATH...${NORMAL}"
 echo -e "export PATH=$PATH:${path}/launcher" >> ~/.bashrc
+source ~/.bashrc
 
 # Lancement
 echo -e "\n${BOLD}Voulez-vous lancer Hop3x ? [o/n]${NORMAL}"
